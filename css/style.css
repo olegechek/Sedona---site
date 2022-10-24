@@ -944,10 +944,14 @@ img {
   font-style: normal;
   font-size: 14px;
   line-height: 26px;
-  margin: 0 auto;
-  position: relative; }
+  margin: 0 auto; }
 
 .feedback__item {
+  width: 100%;
+  position: relative; }
+
+.feedback__item legend {
+  width: 100%;
   position: relative; }
 
 .feedback__item:nth-of-type(n) legend::before {
@@ -958,17 +962,19 @@ img {
   height: 1px;
   background-color: #e5e5e5;
   top: 0px;
-  left: -20px; }
+  left: -20px;
+  right: -20px; }
 
 .feedback__button {
   width: 280px;
+  min-height: 58px;
   font-family: "PT Sans", Arial, sans-serif;
   font-style: bold;
   font-weight: 700;
   font-size: 21px;
   line-height: 26px;
-  padding-top: 19px;
-  padding-bottom: 19px; }
+  padding-top: 17px;
+  padding-bottom: 12px; }
 
 .feedback__comment {
   padding: 0;
@@ -1023,13 +1029,15 @@ img {
   .feedback__item:nth-of-type(3) legend::after {
     display: none; }
   .feedback__item:nth-of-type(1) legend::before {
+    display: none; }
+  .feedback__item:nth-of-type(1)::before {
     content: "";
     display: block;
     position: absolute;
     width: 1px;
-    height: 85%;
+    height: 105%;
     background-color: #e5e5e5;
-    top: 2px;
+    top: -65px;
     left: -1px; }
   .feedback__button {
     width: 322px;
@@ -1074,7 +1082,7 @@ img {
   font-size: 18px;
   line-height: 26px;
   text-align: center;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   padding-top: 20px;
   padding-bottom: 5px;
@@ -1152,19 +1160,20 @@ img {
 
 .contact {
   border: none;
+  width: 100%;
   padding: 0;
   margin: 0;
   padding-bottom: 14px; }
 
 .contact__legend {
-  max-width: 350px;
   font-style: bold;
   color: #000000;
   font-weight: 700;
   font-size: 18px;
   line-height: 26px;
   padding-top: 20px;
-  padding-bottom: 16px; }
+  padding-bottom: 16px;
+  margin: 0 auto; }
 
 .contact__list {
   list-style: none;
@@ -1250,7 +1259,7 @@ img {
     font-size: 21px;
     padding-right: 5px;
     padding-top: 20px;
-    padding-bottom: 21px; }
+    padding-bottom: 18px; }
   .contact__item {
     padding-bottom: 24px; }
   .contact__item:last-of-type {
@@ -1265,6 +1274,7 @@ img {
     top: 7px;
     right: 0px; }
   .contact__legend {
+    padding-top: 18px;
     padding-bottom: 62px; }
   .contact__list {
     display: grid;
@@ -1292,9 +1302,11 @@ img {
 .impression {
   border: none;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  width: 100%; }
 
 .impression__legend {
+  width: 100%;
   display: block;
   box-sizing: border-box;
   font-style: bold;
@@ -1306,7 +1318,6 @@ img {
   padding: 0;
   padding-top: 21px;
   padding-bottom: 37px;
-  width: 280px;
   margin: 0 auto; }
 
 .impression__list {
@@ -1317,15 +1328,18 @@ img {
   margin: 0 auto; }
 
 .impression__item {
-  margin-bottom: 43px; }
+  margin-bottom: 42px; }
 
 .impression__item:last-of-type {
-  margin-bottom: 41px; }
+  margin-bottom: 40px; }
+
+.impression__radio {
+  margin-left: 17px;
+  margin-right: 44px;
+  opacity: 1; }
 
 .impression__item-label {
   position: relative;
-  display: flex;
-  align-items: baseline;
   text-transform: none;
   color: #000000;
   font-style: bold;
@@ -1333,14 +1347,7 @@ img {
   font-size: 18px;
   line-height: 26px; }
 
-.impression__radio {
-  order: -1;
-  margin-left: 21px;
-  margin-right: 44px;
-  opacity: 1;
-  position: relative; }
-
-.impression__radio::before {
+.impression__item-label::before {
   content: "";
   display: block;
   position: absolute;
@@ -1349,16 +1356,16 @@ img {
   border-radius: 50%;
   background-color: #f2f2f2;
   position: absolute;
-  top: -21px;
-  left: -20px; }
+  top: -16px;
+  left: -77px; }
 
-.impression__item-label:hover .impression__radio::before {
+.impression__item-label:hover::before {
   background-color: #e5e5e5; }
 
-.impression__item-label:active .impression__radio::before {
+.impression__item-label:active::before {
   background-color: #d5d5d5; }
 
-.impression__radio:checked:after {
+.impression__radio:checked + .impression__item-label::after {
   content: "";
   display: block;
   position: absolute;
@@ -1367,10 +1374,10 @@ img {
   border-radius: 50%;
   background-color: #333333;
   position: absolute;
-  top: -4px;
-  left: -3px; }
+  top: 1px;
+  left: -59px; }
 
-.impression__item-label:active .impression__radio:checked:after {
+.impression__radio:checked + .impression__item-label:active:after {
   opacity: 0.3; }
 
 /********* T A B L E T     T U N E S **********************/
@@ -1405,7 +1412,8 @@ img {
 .attractions {
   border: none;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  width: 100%; }
 
 .attractions__legend {
   display: block;
@@ -1413,7 +1421,7 @@ img {
   font-style: bold;
   color: #000000;
   text-align: center;
-  width: 280px;
+  width: 100%;
   font-weight: 700;
   font-size: 18px;
   line-height: 26px;
@@ -1421,7 +1429,8 @@ img {
   margin: 0;
   padding-top: 16px;
   padding-right: 2px;
-  padding-bottom: 37px; }
+  padding-bottom: 37px;
+  margin: 0 auto; }
 
 .attractions__list {
   list-style: none;
@@ -1431,28 +1440,25 @@ img {
   margin: 0 auto; }
 
 .attractions__item {
-  margin-bottom: 54px; }
+  margin-bottom: 53px; }
 
 .attractions__item:last-of-type {
   margin-bottom: 38px; }
 
+.attractions__checkbox {
+  margin-left: 18px;
+  margin-right: 44px; }
+
 .attractions__item-label {
-  display: flex;
-  align-items: baseline;
   text-transform: none;
   color: #000000;
   font-style: bold;
   font-weight: 700;
   font-size: 18px;
-  line-height: 26px; }
-
-.attractions__checkbox {
-  order: -1;
-  margin-left: 21px;
-  margin-right: 44px;
+  line-height: 26px;
   position: relative; }
 
-.attractions__checkbox::before {
+.attractions__item-label::before {
   content: "";
   display: block;
   position: absolute;
@@ -1461,16 +1467,16 @@ img {
   border-radius: 5%;
   background-color: #f2f2f2;
   position: absolute;
-  top: -21px;
-  left: -20px; }
+  top: -17px;
+  left: -79px; }
 
-.attractions__item-label:hover .attractions__checkbox::before {
+.attractions__item-label:hover::before {
   background-color: #e5e5e5; }
 
-.attractions__item-label:active .attractions__checkbox::before {
+.attractions__item-label:active::before {
   background-color: #d5d5d5; }
 
-.attractions__checkbox:checked:after {
+.attractions__checkbox:checked + .attractions__item-label::after {
   content: "";
   display: block;
   position: absolute;
@@ -1480,10 +1486,10 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  top: -3px;
-  left: -4px; }
+  top: 3px;
+  left: -62px; }
 
-.attractions__item-label:active .attractions__checkbox:checked:after {
+.attractions__checkbox:checked + .attractions__item-label:active:after {
   opacity: 0.3; }
 
 /********* T A B L E T     T U N E S **********************/
@@ -1493,7 +1499,6 @@ img {
   .attractions__legend {
     display: block;
     font-size: 21px;
-    width: 400px;
     padding-top: 27px;
     padding-right: 3px;
     padding-bottom: 59px;
@@ -1553,7 +1558,7 @@ img {
   line-height: 26px;
   padding: 12px 20px;
   margin: 0;
-  margin-bottom: 42px;
+  margin-bottom: 39px;
   width: 100%;
   min-height: 160px;
   resize: none; }
