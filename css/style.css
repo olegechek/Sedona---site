@@ -41,6 +41,9 @@ img {
 .cutout {
   display: none; }
 
+.dimmer {
+  filter: grayscale(100%); }
+
 .page {
   height: 100%;
   min-width: 320px;
@@ -66,9 +69,6 @@ img {
   margin-left: auto;
   margin-right: auto; }
 
-.dimmer {
-  filter: grayscale(100%); }
-
 .page-header {
   position: relative;
   background-color: #ffffff;
@@ -80,6 +80,10 @@ img {
   bottom: -34px;
   left: 50%;
   transform: translateX(-50%); }
+
+.page-header__logo img {
+  width: 102px;
+  height: 84px; }
 
 .page-header__button {
   position: absolute;
@@ -97,6 +101,9 @@ img {
     opacity: 0.6; }
   .page-header__button:active {
     opacity: 0.3; }
+
+.page-header__button--no-js {
+  display: none; }
 
 /************ O N L Y   M O B I L E   T U N E S ******************/
 @media (max-width: 767px) {
@@ -119,6 +126,8 @@ img {
       opacity: 0.6; }
     .page-header__close-button:active {
       opacity: 0.3; }
+  .page-header__close-button--no-js {
+    display: none; }
   .page-header__navigation--mobile-closed {
     display: none; }
   .page-header__navigation--no-js {
@@ -140,6 +149,12 @@ img {
     position: absolute;
     display: none; } }
 
+/********* D E S K T O P     T U N E S **********************/
+@media (min-width: 1200px) {
+  .page-header__logo img {
+    width: 186px;
+    height: 96px; } }
+
 .site-list {
   font-family: "PT Sans";
   list-style: none;
@@ -150,7 +165,7 @@ img {
 
 .site-list__item {
   display: block;
-  height: 56px;
+  min-height: 56px;
   font-style: bold;
   font-weight: 700;
   font-size: 18px;
@@ -158,7 +173,9 @@ img {
   color: #ffffff;
   background-color: #81b3d2;
   border-bottom: 1px;
-  padding-top: 10px; }
+  padding-top: 10px;
+  padding-left: 60px;
+  padding-right: 60px; }
   .site-list__item:hover {
     background-color: #669ec0; }
   .site-list__item:active {
@@ -182,11 +199,11 @@ img {
   .site-list {
     min-height: 56px;
     min-width: 768px;
-    max-width: 920px;
+    max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    row-gap: 20px;
     align-items: center; }
   .site-list__item {
     font-style: bold;
@@ -198,7 +215,9 @@ img {
     border: none;
     min-width: 153px;
     height: auto;
-    padding: 0;
+    padding-top: 16px;
+    padding-left: 15px;
+    padding-right: 15px;
     border-bottom: none; }
     .site-list__item:hover {
       background-color: #ffffff; }
@@ -300,14 +319,15 @@ img {
     left: calc(50% - 230px); } }
 
 .features {
-  background-color: #ffffff;
+  background-color: #eeeeee;
   text-align: center;
   padding: 0;
   margin: 0; }
 
 .features__header {
   position: relative;
-  padding-bottom: 10px; }
+  padding-bottom: 10px;
+  background-color: #ffffff; }
 
 .features__header::after {
   content: "";
@@ -352,28 +372,28 @@ img {
   background-color: #eeeeee;
   margin: 0;
   padding-top: 27px;
-  padding-bottom: 25px;
+  padding-bottom: 24px;
   padding-left: 35px;
   padding-right: 35px;
   min-height: 168px; }
+
+.features__item:not(:last-of-type):nth-of-type(n+3) {
+  border-bottom: 1px solid #d6d6d6;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 18px;
+  margin-right: 18px; }
 
 .features__item--alternative {
   background-color: #ffffff;
   padding: 0;
   margin: 0;
-  height: auto; }
+  height: auto;
+  display: grid; }
 
-.features__item--alternative-text-block {
+.features__item--alternative:nth-of-type(1)::after {
+  content: "";
   display: block;
-  background-color: #81b3d2;
-  color: #ffffff;
-  min-height: 190px;
-  padding-top: 39px;
-  padding-bottom: 25px;
-  padding-left: 10px;
-  padding-right: 10px; }
-
-.features__item--alternative-img-block1 {
   height: 260px;
   width: 100%;
   padding: 0;
@@ -382,20 +402,23 @@ img {
   background-image: url("../img/Photo/features/features-real-town-mobile.jpg");
   background-repeat: no-repeat;
   background-size: 520px 260px;
-  background-position: center bottom; }
+  background-position: center bottom;
+  order: -1; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
-    .features__item--alternative-img-block1 {
+    .features__item--alternative:nth-of-type(1)::after {
       background-image: url("../img/Photo/features/features-real-town-mobile@2x.jpg"); } }
   @media (min-width: 520px) {
-    .features__item--alternative-img-block1 {
+    .features__item--alternative:nth-of-type(1)::after {
       height: 256px;
       background-image: url("../img/Photo/features/features-real-town-all.jpg");
       background-size: 800px 256px; } }
   @media (min-width: 520px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 520px) and (min-resolution: 2dppx) {
-    .features__item--alternative-img-block1 {
+    .features__item--alternative:nth-of-type(1)::after {
       background-image: url("../img/Photo/features/features-real-town-all@2x.jpg"); } }
 
-.features__item--alternative-img-block2 {
+.features__item--alternative:nth-of-type(2)::after {
+  content: "";
+  display: block;
   height: 260px;
   width: 100%;
   padding: 0;
@@ -406,16 +429,27 @@ img {
   background-size: 520px 260px;
   background-position: center bottom; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
-    .features__item--alternative-img-block2 {
+    .features__item--alternative:nth-of-type(2)::after {
       background-image: url("../img/Photo/features/features-devil-bridge-mobile@2x.jpg"); } }
   @media (min-width: 520px) {
-    .features__item--alternative-img-block2 {
+    .features__item--alternative:nth-of-type(2)::after {
       height: 256px;
       background-image: url("../img/Photo/features/features-devil-bridge-all.jpg");
       background-size: 800px 256px; } }
   @media (min-width: 520px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 520px) and (min-resolution: 2dppx) {
-    .features__item--alternative-img-block2 {
+    .features__item--alternative:nth-of-type(2)::after {
       background-image: url("../img/Photo/features/features-devil-bridge-all@2x.jpg"); } }
+
+.features__item-text-block {
+  display: block;
+  background-color: #81b3d2;
+  color: #ffffff;
+  min-height: 190px;
+  padding-top: 39px;
+  padding-bottom: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
+  order: -1; }
 
 .features__headline {
   color: #000000;
@@ -443,6 +477,9 @@ img {
 .features__description br {
   display: none; }
 
+.features__description span {
+  white-space: nowrap; }
+
 /********* T A B L E T     T U N E S **********************/
 @media (min-width: 768px) {
   .features__header {
@@ -465,6 +502,11 @@ img {
     padding-top: 44px;
     padding-left: 30px;
     padding-right: 30px; }
+  .features__item:not(:last-of-type):nth-of-type(n+3) {
+    border-bottom: none;
+    margin: 0;
+    padding-left: 30px;
+    padding-right: 30px; }
   .features__item--alternative {
     padding: 0;
     margin: 0;
@@ -472,54 +514,55 @@ img {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column: span 3;
-    grid-row: span 2;
     align-items: end; }
-  .features__item--alternative-text-block {
+  .features__item--alternative:nth-of-type(1)::after {
+    grid-column: span 2;
+    background-image: url("../img/Photo/features/features-real-town-tablet.jpg");
+    background-size: 512px 256px; } }
+  @media (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 768px) and (min-resolution: 2dppx) {
+    .features__item--alternative:nth-of-type(1)::after {
+      background-image: url("../img/Photo/features/features-real-town-tablet@2x.jpg"); } }
+  @media (min-width: 768px) and (min-width: 769px) {
+    .features__item--alternative:nth-of-type(1)::after {
+      background-image: url("../img/Photo/features/features-real-town-all.jpg");
+      background-size: 800px 256px; } }
+  @media (min-width: 768px) and (min-width: 769px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 768px) and (min-width: 769px) and (min-resolution: 2dppx) {
+    .features__item--alternative:nth-of-type(1)::after {
+      background-image: url("../img/Photo/features/features-real-town-all@2x.jpg"); } }
+
+@media (min-width: 768px) {
+  .features__item--alternative:nth-of-type(2)::after {
+    grid-column: span 2;
+    background-image: url("../img/Photo/features/features-devil-bridge-tablet.jpg");
+    background-size: 512px 256px;
+    order: -2; } }
+  @media (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 768px) and (min-resolution: 2dppx) {
+    .features__item--alternative:nth-of-type(2)::after {
+      background-image: url("../img/Photo/features/features-devil-bridge-tablet@2x.jpg"); } }
+  @media (min-width: 768px) and (min-width: 769px) {
+    .features__item--alternative:nth-of-type(2)::after {
+      height: 256px;
+      background-image: url("../img/Photo/features/features-devil-bridge-all.jpg");
+      background-size: 800px 256px; } }
+  @media (min-width: 768px) and (min-width: 769px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 768px) and (min-width: 769px) and (min-resolution: 2dppx) {
+    .features__item--alternative:nth-of-type(2)::after {
+      background-image: url("../img/Photo/features/features-devil-bridge-all@2x.jpg"); } }
+
+@media (min-width: 768px) {
+  .features__item-text-block {
     height: 256px;
     min-width: 256px;
     padding-top: 45px;
     padding-bottom: 25px;
     padding-left: 20px;
     padding-right: 20px; }
-  .features__item--alternative-img-block1 {
-    grid-column: span 2;
-    background-image: url("../img/Photo/features/features-real-town-tablet.jpg");
-    background-size: 512px 256px; } }
-  @media (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 768px) and (min-resolution: 2dppx) {
-    .features__item--alternative-img-block1 {
-      background-image: url("../img/Photo/features/features-real-town-tablet@2x.jpg"); } }
-  @media (min-width: 768px) and (min-width: 769px) {
-    .features__item--alternative-img-block1 {
-      background-image: url("../img/Photo/features/features-real-town-all.jpg");
-      background-size: 800px 256px; } }
-  @media (min-width: 768px) and (min-width: 769px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 768px) and (min-width: 769px) and (min-resolution: 2dppx) {
-    .features__item--alternative-img-block1 {
-      background-image: url("../img/Photo/features/features-real-town-all@2x.jpg"); } }
-
-@media (min-width: 768px) {
-  .features__item--alternative-img-block2 {
-    grid-column: span 2;
-    background-image: url("../img/Photo/features/features-devil-bridge-tablet.jpg");
-    background-size: 512px 256px;
-    order: -1; } }
-  @media (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 768px) and (min-resolution: 2dppx) {
-    .features__item--alternative-img-block2 {
-      background-image: url("../img/Photo/features/features-devil-bridge-tablet@2x.jpg"); } }
-  @media (min-width: 768px) and (min-width: 769px) {
-    .features__item--alternative-img-block2 {
-      height: 256px;
-      background-image: url("../img/Photo/features/features-devil-bridge-all.jpg");
-      background-size: 800px 256px; } }
-  @media (min-width: 768px) and (min-width: 769px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 768px) and (min-width: 769px) and (min-resolution: 2dppx) {
-    .features__item--alternative-img-block2 {
-      background-image: url("../img/Photo/features/features-devil-bridge-all@2x.jpg"); } }
-
-@media (min-width: 768px) {
   .features__headline {
     font-size: 21px;
     padding-bottom: 12px; }
   .features__headline br {
     display: inline; }
+  .features__headline span {
+    display: none; }
   .features__number {
     margin: 0;
     padding-bottom: 23px; }
@@ -537,7 +580,7 @@ img {
     padding-left: 120px;
     padding-right: 120px;
     padding-bottom: 41px; }
-  .features__item--alternative-text-block {
+  .features__item-text-block {
     padding-top: 51px;
     padding-left: 55px;
     padding-right: 55px; }
@@ -552,7 +595,7 @@ img {
 
 .hints__list {
   padding: 0;
-  padding-top: 35px;
+  padding-top: 36px;
   padding-bottom: 35px;
   margin: 0;
   list-style: none;
@@ -614,6 +657,9 @@ img {
 
 .hints__description br {
   display: none; }
+
+.hints__description span {
+  white-space: nowrap; }
 
 @media (min-width: 768px) {
   .hints {
@@ -690,7 +736,7 @@ img {
 .booking {
   background-color: #ffffff;
   padding: 0;
-  padding-bottom: 50px;
+  padding-bottom: 48px;
   margin: 0;
   text-align: center;
   padding-left: 20px;
@@ -713,6 +759,9 @@ img {
   padding-top: 21px;
   padding-bottom: 29px;
   margin: 0; }
+
+.booking__description span {
+  white-space: nowrap; }
 
 .booking__link {
   margin: 0;
@@ -773,7 +822,8 @@ img {
   background-image: url("../img/map-all.png");
   background-repeat: no-repeat;
   background-size: auto;
-  background-position: center; }
+  background-position: center;
+  margin-bottom: 2px; }
 
 .map__interactive {
   height: 350px;
@@ -783,7 +833,7 @@ img {
   background-color: #ffffff;
   min-height: 243px;
   padding: 0;
-  padding-top: 36px;
+  padding-top: 39px;
   margin: 0;
   text-align: center; }
 
@@ -794,14 +844,17 @@ img {
   font-size: 21px;
   line-height: 26px;
   padding: 0;
-  padding-bottom: 35px;
-  padding-right: 1px;
-  margin: 0; }
+  margin: 0;
+  margin-bottom: 35px; }
 
 .page-footer__social {
-  display: block;
-  padding-bottom: 28px;
-  padding-right: 2px; }
+  padding: 0;
+  margin: 0;
+  margin-bottom: 35px; }
+
+.page-footer__copyright {
+  padding: 0;
+  margin: 0; }
 
 /********* T A B L E T     T U N E S **********************/
 @media (min-width: 768px) {
@@ -811,43 +864,26 @@ img {
     margin: 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    -moz-column-gap: 10px;
+         column-gap: 10px;
     align-items: center; }
   .page-footer__hashtag {
     padding: 0;
     margin: 0; }
   .page-footer__social {
-    padding: 0;
-    margin: 0; }
-  .page-footer__copyright {
-    padding: 0;
-    margin: 0;
-    padding-left: 6px; } }
+    margin-bottom: 0; } }
 
 /******************* D E S K T O P    T U N E S **********************/
 @media (min-width: 1200px) {
   .page-footer {
-    -moz-column-gap: 30px;
-         column-gap: 30px; }
-  .page-footer__hashtag {
-    padding: 0;
-    margin: 0;
     padding-top: 5px;
-    padding-right: 5px; }
-  .page-footer__copyright {
-    padding: 0;
-    margin: 0;
-    padding-left: 9px;
-    padding-top: 1px; } }
+    -moz-column-gap: 40px;
+         column-gap: 40px; } }
 
 .social {
-  display: block;
-  background-color: #ffffff; }
-
-.social__list {
   list-style: none;
-  padding: 0;
-  margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   -moz-column-gap: 5px;
        column-gap: 5px; }
@@ -882,26 +918,18 @@ img {
   background-image: url("../img/Icons/icon-youtube.svg"); }
 
 .copyright {
-  background-color: #ffffff;
   display: flex;
-  justify-content: space-between;
-  width: 148px;
-  margin: 0 auto; }
-
-.copyright__text {
-  display: block;
-  height: 35px;
+  justify-content: center;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  align-items: center;
   font-style: normal;
   font-size: 14px;
-  line-height: 26px;
-  margin-left: 8px; }
+  line-height: 26px; }
 
 .copyright__link {
-  display: block;
   width: 27px;
   height: 35px;
-  margin-top: 9px;
-  margin-right: 10px;
   color: #000000; }
   .copyright__link:hover {
     color: #81b3d2; }
@@ -937,7 +965,8 @@ img {
   font-size: 14px;
   line-height: 24px;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  padding-bottom: 18px; }
 
 .feedback__form {
   background-color: #ffffff;
@@ -1046,7 +1075,8 @@ img {
     display: block;
     text-align: right;
     font-size: 14px;
-    padding-top: 20px; } }
+    padding-top: 20px;
+    margin-right: 4px; } }
 
 /********* D E S K T O P    T U N E S **********************/
 @media (min-width: 1200px) {
@@ -1128,18 +1158,21 @@ img {
 .personal__data:focus {
   background-color: #ffffff;
   outline: none;
-  border: 4px solid #e5e5e5; }
+  border: 4px solid #e5e5e5;
+  padding-left: 18px; }
 
 .personal__data::-webkit-input-placeholder {
   color: #000000; }
 
 .personal__data--failure:-moz-placeholder-shown {
   outline: none;
-  border: 2px solid red; }
+  border: 2px solid red;
+  padding-left: 20px; }
 
 .personal__data--failure:placeholder-shown {
   outline: none;
-  border: 2px solid red; }
+  border: 2px solid red;
+  padding-left: 20px; }
 
 /********* T A B L E T     T U N E S **********************/
 @media (min-width: 768px) {
@@ -1240,18 +1273,21 @@ img {
 .contact__data:focus {
   background-color: #ffffff;
   outline: none;
-  border: 4px solid #e5e5e5; }
+  border: 4px solid #e5e5e5;
+  padding-left: 18px; }
 
 .contact__data::-webkit-input-placeholder {
   color: #000000; }
 
 .contact__data--failure:-moz-placeholder-shown {
   outline: none;
-  border: 2px solid red; }
+  border: 2px solid red;
+  padding-left: 20px; }
 
 .contact__data--failure:placeholder-shown {
   outline: none;
-  border: 2px solid red; }
+  border: 2px solid red;
+  padding-left: 20px; }
 
 /********* T A B L E T     T U N E S **********************/
 @media (min-width: 768px) {
@@ -1274,8 +1310,8 @@ img {
     top: 7px;
     right: 0px; }
   .contact__legend {
-    padding-top: 18px;
-    padding-bottom: 62px; }
+    padding-top: 19px;
+    padding-bottom: 63px; }
   .contact__list {
     display: grid;
     grid-template-columns: 1fr 1fr; }
@@ -1303,7 +1339,8 @@ img {
   border: none;
   padding: 0;
   margin: 0;
-  width: 100%; }
+  width: 100%;
+  padding-bottom: 2px; }
 
 .impression__legend {
   width: 100%;
@@ -1325,10 +1362,13 @@ img {
   text-align: left;
   padding: 0;
   width: 280px;
+  padding-left: 3px;
   margin: 0 auto; }
 
 .impression__item {
-  margin-bottom: 42px; }
+  margin-bottom: 42px;
+  display: flex;
+  align-items: baseline; }
 
 .impression__item:last-of-type {
   margin-bottom: 40px; }
@@ -1362,6 +1402,7 @@ img {
 .impression__item-label:hover::before {
   background-color: #e5e5e5; }
 
+.impression__radio:focus + .impression__item-label::before,
 .impression__item-label:active::before {
   background-color: #d5d5d5; }
 
@@ -1377,7 +1418,7 @@ img {
   top: 1px;
   left: -59px; }
 
-.impression__radio:checked + .impression__item-label:active:after {
+.impression__radio:checked + .impression__item-label:active::after {
   opacity: 0.3; }
 
 /********* T A B L E T     T U N E S **********************/
@@ -1402,18 +1443,22 @@ img {
 
 /********* D E S K T O P    T U N E S **********************/
 @media (min-width: 1200px) {
+  .impression {
+    padding: 0;
+    margin: 0; }
   .impression__legend {
     width: 480px;
     padding-left: 79px; }
   .impression__list {
     width: 480px;
-    padding-left: 5px; } }
+    padding-left: 8px; } }
 
 .attractions {
   border: none;
   padding: 0;
   margin: 0;
-  width: 100%; }
+  width: 100%;
+  padding-bottom: 3px; }
 
 .attractions__legend {
   display: block;
@@ -1436,11 +1481,14 @@ img {
   list-style: none;
   text-align: left;
   padding: 0;
+  padding-left: 3px;
   width: 280px;
   margin: 0 auto; }
 
 .attractions__item {
-  margin-bottom: 53px; }
+  margin-bottom: 53px;
+  display: flex;
+  align-items: baseline; }
 
 .attractions__item:last-of-type {
   margin-bottom: 38px; }
@@ -1473,6 +1521,7 @@ img {
 .attractions__item-label:hover::before {
   background-color: #e5e5e5; }
 
+.attractions__checkbox:focus + .attractions__item-label::before,
 .attractions__item-label:active::before {
   background-color: #d5d5d5; }
 
@@ -1499,13 +1548,12 @@ img {
   .attractions__legend {
     display: block;
     font-size: 21px;
-    padding-top: 27px;
-    padding-right: 3px;
+    padding-right: 5px;
     padding-bottom: 59px;
     padding-top: 6px; }
   .attractions__list {
-    min-width: 648px;
-    max-width: 970px;
+    min-width: 651px;
+    max-width: 973px;
     width: auto;
     display: flex;
     flex-wrap: wrap;
@@ -1522,15 +1570,29 @@ img {
 @media (min-width: 1200px) {
   .attractions__list {
     width: 960px;
-    padding-right: 3px;
-    padding-bottom: 61px;
-    justify-content: space-between; }
+    min-width: 960px;
+    max-width: 960px;
+    padding-left: 3px;
+    padding-bottom: 59px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 40px; }
   .attractions__item {
-    width: auto;
-    padding: 0;
-    margin: 0; }
+    width: auto; }
   .attractions__item:nth-child(n) {
     padding: 0;
+    margin: 0; }
+  .attractions__item:nth-child(4n+1) {
+    padding-right: 10px;
+    margin: 0; }
+  .attractions__item:nth-child(4n+2) {
+    padding-left: 20px;
+    margin: 0; }
+  .attractions__item:nth-child(4n+3) {
+    padding-left: 40px;
+    margin: 0; }
+  .attractions__item:nth-child(4n+4) {
+    padding-left: 40px;
     margin: 0; } }
 
 .review {
@@ -1558,10 +1620,20 @@ img {
   line-height: 26px;
   padding: 12px 20px;
   margin: 0;
-  margin-bottom: 39px;
+  margin-bottom: 42px;
   width: 100%;
   min-height: 160px;
   resize: none; }
+
+.review__textarea:hover {
+  background-color: #e5e5e5; }
+
+.review__textarea:focus {
+  background-color: #ffffff;
+  outline: none;
+  border: 4px solid #e5e5e5;
+  padding-left: 16px;
+  padding-top: 11px; }
 
 .review__textarea::-webkit-input-placeholder {
   color: #000000; }
@@ -1580,12 +1652,12 @@ img {
 /********* D E S K T O P    T U N E S **********************/
 @media (min-width: 1200px) {
   .review__legend {
-    padding-bottom: 57px; }
+    padding-bottom: 55px; }
   .review__textarea {
     padding: 15px 20px;
     margin-bottom: 47px; } }
 
-.failure-box--wrapper {
+.popup-block {
   position: fixed;
   top: 0px;
   left: 0px;
@@ -1685,7 +1757,10 @@ img {
   font-size: 14px;
   line-height: 24px; }
 
-.success-box__button--wrapper {
+.success-box__text span {
+  white-space: nowrap; }
+
+.success-box__button-box {
   display: block;
   width: 320px;
   padding: 20px 0px 20px 0px;
@@ -1712,7 +1787,7 @@ img {
     padding-bottom: 38px; }
   .success-box__text {
     padding: 0px 80px 39px 80px; }
-  .success-box__button--wrapper {
+  .success-box__button-box {
     width: 640px;
     padding: 45px 0px 45px 0px; }
   .success-box__button {
@@ -1865,7 +1940,8 @@ img {
     grid-template-columns: 1fr 1fr;
     max-width: 800px; }
   .photo__item {
-    background-color: #f2f2f2; }
+    background-color: #f2f2f2;
+    align-self: stretch; }
   .photo__item::before {
     display: none; }
   .photo__item::after {
@@ -1883,9 +1959,13 @@ img {
     padding-top: 4px;
     padding-left: 19px;
     padding-right: 20px; }
+  .photo__name {
+    max-width: 190px; }
   .photo__author {
+    max-width: 190px;
     padding-bottom: 17px; }
   .photo__likes {
+    max-width: 80px;
     position: absolute;
     top: 30px;
     right: 31px;
@@ -1927,10 +2007,10 @@ img {
     background-color: rgba(0, 0, 0, 0.6);
     bottom: 0px;
     width: 100%; }
+  .photo__name {
+    max-width: 260px; }
   .photo__likes::before {
     background-image: url("../img/Icons/like-icon-white.svg"); }
-  .photo__item:first-child .photo__likes {
-    left: 1117px; }
   .photo__image {
     width: 400px;
     height: 267px; } }
@@ -2022,24 +2102,24 @@ img {
   .video__control-button:active {
     opacity: 0.3; }
 
-.button--replay {
+.video__control-button--replay {
   margin-right: auto; }
 
-.button--replay svg {
+.video__control-button--replay svg {
   display: block;
   margin: 0;
   padding: 0;
   margin: auto auto; }
 
-.button--subs {
+.video__control-button--subs {
   margin-right: 3px; }
 
-.button--subs svg {
+.video__control-button--subs svg {
   display: block;
   padding: 0;
   margin: auto 0 auto auto; }
 
-.button--fullscreen svg {
+.video__control-button--fullscreen svg {
   margin: 0;
   padding: 0;
   margin: auto auto; }
@@ -2092,7 +2172,7 @@ img {
       opacity: 0.6; }
     .video__control-button:active {
       opacity: 0.3; }
-  .button--subs {
+  .video__control-button--subs {
     margin-right: 6px; } }
 
 /********* D E S K T O P    T U N E S **********************/

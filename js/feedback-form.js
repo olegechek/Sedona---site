@@ -1,6 +1,7 @@
 var enterForm = document.querySelector('.feedback__form');
-var successBox = document.querySelector('.success-box--wrapper');
-var failureBox = document.querySelector('.failure-box--wrapper');
+var popupBlock = document.querySelector('.popup-block');
+var successBox = document.querySelector('.success-box');
+var failureBox = document.querySelector('.failure-box');
 var successBoxClose = document.querySelector('.success-box__button');
 var failureBoxClose = document.querySelector('.failure-box__button');
 var nameData = document.querySelector('[name=name]');
@@ -17,6 +18,8 @@ var pageFooter = document.querySelector('.page-footer');
 
 enterForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
+
+  popupBlock.classList.remove('cutout');
 
   if (!nameData.value || !surnameData.value || !telData.value || !emailData.value) {
 
@@ -47,6 +50,7 @@ enterForm.addEventListener('submit', function (evt) {
 });
 
 successBoxClose.addEventListener('click', function (evt) {
+  popupBlock.classList.add('cutout');
   successBox.classList.add('cutout');
 
   pageHeader.classList.remove('dimmer');
@@ -57,6 +61,7 @@ successBoxClose.addEventListener('click', function (evt) {
 });
 
 failureBoxClose.addEventListener('click', function (evt) {
+  popupBlock.classList.add('cutout');
   failureBox.classList.add('cutout');
 
   pageHeader.classList.remove('dimmer');
